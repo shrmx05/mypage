@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-6 rounded-2xl m-4 dark:bg-gray-800 dark:text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-gray-800 dark:text-gray-100">My Portfolio</h1>
+            <div class="space-x-4">
+                <a href="about.html" class="text-orange-500 font-semibold text-lg hover:text-orange-600 transition dark:hover:text-orange-400">About</a>
+                <a href="projects.html" class="text-orange-500 font-semibold text-lg hover:text-orange-600 transition dark:hover:text-orange-400">Projects</a>
+                <a href="contact.html" class="text-orange-500 font-semibold text-lg hover:text-orange-600 transition dark:hover:text-orange-400">Contact</a>
+            </div>
+            <button onclick="toggleDarkMode()" class="ml-4 bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-gray-300">Toggle Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-300 rounded-3xl m-4 dark:from-blue-900 dark:to-blue-700">
+        <div class="text-center">
+            <h2 class="text-5xl font-extrabold text-gray-800 dark:text-white">Hi, I'm [Your Name] 👋</h2>
+            <p class="mt-4 text-xl text-gray-700 dark:text-gray-300">I build elegant and functional web experiences.</p>
+            <a href="projects.html" class="mt-6 inline-block bg-orange-500 text-white px-8 py-3 rounded-full text-lg hover:bg-orange-600 transition dark:bg-orange-700 dark:hover:bg-orange-600">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-6 rounded-b-2xl m-4 dark:bg-gray-900 dark:text-gray-400">
+        <p class="text-lg">&copy; 2025 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+</body>
+</html>

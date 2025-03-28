@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .dark-mode {
+            background-color: #1f2937;
+            /* Dark Gray */
+            color: #f9fafb;
+            /* White Text */
+        }
+
+
+        /* Smooth transition for the toggle */
+        .dot {
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        /* Toggle background animation */
+        .peer-checked + .toggle-bg {
+            background-color: #4caf50;
+        }
+
+        /* Dot moves smoothly */
+        .peer-checked + .toggle-bg .dot {
+            transform: translateX(20px);
+            background-color: #fff;
+        }
+
+        /* Center align navbar */
+        nav a {
+            margin: 0 12px;
+        }
+
+        /* Position toggle to top-right */
+        .toggle-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900 bg-gray-100 transition-all duration-300" id="body">
+
+<!-- Navigation Bar -->
+<nav class="flex justify-between items-center px-4 py-2 bg-[#1e293b] text-white relative">
+    <!-- Left Space (Optional, remove if not needed) -->
+    <div class="flex items-center space-x-4"></div>
+
+    <!-- Centered Links -->
+    <div class="flex space-x-8">
+        <a href="#" class="text-white hover:text-gray-300">Home</a>
+        <a href="#" class="text-white hover:text-gray-300">Projects</a>
+        <a href="#" class="text-white hover:text-gray-300 hidden" id="other-link">Other</a>
+    </div>
+
+    <!-- Toggle Button for "Other" -->
+    <div class="flex items-center">
+        <label for="other-toggle" class="relative inline-block w-10 h-5 cursor-pointer">
+            <input type="checkbox" id="other-toggle" class="hidden" />
+            <span class="slider round"></span>
+        </label>
+    </div>
+</nav>
+
+<!-- CSS to Style the Slider -->
+<style>
+    /* Slider Styles */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        border-radius: 34px;
+        transition: 0.4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 4px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+    input:checked + .slider {
+        background-color: #4caf50;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(16px);
+    }
+
+    .round {
+        border-radius: 34px;
+    }
+
+    /* Hidden class for the "Other" link */
+    .hidden {
+        display: none;
+    }
+    
+</style>
+
+<!-- JavaScript to Toggle the "Other" Link -->
+<script>
+    // Toggle the "Other" link visibility
+    document.getElementById('other-toggle').addEventListener('change', function () {
+        const otherLink = document.getElementById('other-link');
+        if (this.checked) {
+            otherLink.classList.remove('hidden'); // Show "Other"
+        } else {
+            otherLink.classList.add('hidden'); // Hide "Other"
+        }
+    });
+</script>
+
+
+    <!-- Toggle Button Section -->
+    <div class="toggle-container">
+        <label for="dark-mode-toggle" class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="dark-mode-toggle" class="sr-only peer" />
+            <div
+                class="w-11 h-6 bg-gray-300 rounded-full toggle-bg peer-checked:bg-green-500 transition-all duration-300">
+                <div
+                    class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full shadow-md transition-all duration-300">
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <!-- Profile Section -->
+    <section class="flex flex-col items-center mt-10">
+        <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <img src="profile.jpg" alt="Profile" class="w-full h-full object-cover" />
+        </div>
+        <h1 class="mt-4 text-4xl text-[#7f4f24] dark:text-[#ffebcd] font-bold">Shriram Sahoo</h1>
+    </section>
+
+    <!-- About Section -->
+    <section class="mt-10 mx-auto max-w-3xl bg-white p-8 rounded-xl shadow-lg dark:bg-gray-800" id="about-section">
+        <p class="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
+            Hello! I'm Shriram, a sophomore at IIT Delhi.
+        </p>
+        <p class="mt-4 text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
+            My primary interests lie in <strong>Machine Learning, Game Theory, Mechanism Design</strong>, and
+            <strong>Quantitative Finance.</strong>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-10 text-center text-white bg-[#7f4f24] p-4 rounded-t-xl">
+        <p class="text-xl">&copy; 2025 Shriram Sahoo. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dark Mode Toggle and Button -->
+    <script>
+        const toggle = document.getElementById('dark-mode-toggle');
+        const body = document.getElementById('body');
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+
+        // Function to enable dark mode
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+
+        // Function to disable dark mode
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+
+        // Toggle dark mode on switch change
+        toggle.addEventListener('change', () => {
+            if (toggle.checked) {
+                enableDarkMode();
+            } else {
+                disableDarkMode();
+            }
+        });
+
+        // Toggle dark mode on button click
+        darkModeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!body.classList.contains('dark-mode')) {
+                enableDarkMode();
+                toggle.checked = true; // Sync with toggle
+            } else {
+                disableDarkMode();
+                toggle.checked = false; // Sync with toggle
+            }
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            enableDarkMode();
+            toggle.checked = true;
+        }
+    </script>
+</body>
+
+</html>

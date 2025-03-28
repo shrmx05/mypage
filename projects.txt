@@ -1,0 +1,29 @@
+-fair draws generative
+-gambling strategy
+-alpha creating -Quantitative Portfolio Optimization
+Mean Reversion Strategy
+Momentum Strategy
+Statistical Arbitrage (Pairs Trading)
+Market-Making Strategy
+-20 questions
+-3 mini projects
+
+Optimal Auction Design for High-Frequency Trading (HFT) Markets
+📡 9. Simulate Latency Arbitrage, 🧠 2. Build a Market-Making Bot
+
+
+
+
+
+
+-website
+-intro blog
+-life blog
+-music blog
+-debate log
+-projects
+-quant
+-research books
+-sports betting
+-puzzles
+-cp

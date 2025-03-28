@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #FAF9F6; /* Soft Pearl White for Light Mode */
+            color: #333333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .dark-mode {
+            background-color: #121212; /* Deep Midnight for Dark Mode */
+            color: #E0E0E0;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            transition: transform 0.3s, background-color 0.3s;
+            color: #FF6F61; /* Coral for links */
+        }
+
+        .nav-link:hover {
+            background-color: #FFB6A9; /* Light Coral Pink for hover */
+            transform: scale(1.05);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #FF6F61; /* Coral for toggle */
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Dark mode specific styles */
+        .dark-mode .box {
+            background-color: #1F1F1F; /* Dark grey box */
+            color: #E0E0E0 !important;
+        }
+
+        .dark-mode h1 {
+            color: #FF6F61 !important;
+        }
+
+        .dark-mode p {
+            color: #E0E0E0 !important;
+        }
+
+        .dark-mode nav {
+            background-color: #1B263B !important; /* Navy for Nav in Dark Mode */
+        }
+
+        /* Hidden section styles */
+        #hiddenSection {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hidden-link {
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .hidden-link:hover {
+            color: #FFB6A9; /* Soft Coral Pink hover */
+            transform: translateX(5px);
+        }
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode p,
+        .dark-mode a,
+        .dark-mode strong {
+            color: #ffffff !important; /* Pure White for better contrast */
+        }
+
+        .dark-mode .box {
+            background-color: #333333 !important; /* Dark background for boxes */
+            color: #e0e0e0 !important;
+        }
+
+        .dark-mode nav {
+            background-color: #1b1b3a !important; /* Dark navy for nav */
+        }
+
+        .dark-mode footer {
+            background-color: #1b1b3a !important;
+        }
+
+    </style>
+</head>
+
+<body class="text-gray-900" id="body">
+    <!-- Navbar -->
+    <nav class="bg-[#1B263B] text-white p-4 flex justify-center space-x-8 shadow-lg relative">
+        <a href="about.html" class="nav-link px-4 py-2 rounded-lg">Home</a>
+        <a href="projects.html" class="nav-link px-4 py-2 rounded-lg">Projects</a>
+        <a href="#" id="otherLink" class="nav-link px-4 py-2 rounded-lg">Other</a>
+
+        <!-- Dark Mode Toggle -->
+        <div class="absolute top-4 right-4">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="flex flex-col items-center mt-10">
+        <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+            <img src="profile.jpg" alt="Profile" class="w-full h-full object-cover">
+        </div>
+        <h1 class="mt-4 text-5xl font-bold text-[#1B263B] dark:text-[#FF6F61]">Shriram Sahoo</h1>
+    </section>
+
+    <!-- About Section -->
+    <section class="mt-10 mx-auto max-w-3xl bg-white p-8 rounded-xl shadow-xl box">
+        <p class="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
+            Hello! I'm Shriram, a sophomore at IIT Delhi.
+        </p>
+        <p class="mt-4 text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
+            My primary interests lie in <strong>Machine Learning, Game Theory, Mechanism Design,</strong> and <strong>Quantitative Finance.</strong>
+        </p>
+    </section>
+
+    <!-- Hidden Section for "Other" -->
+    <section id="hiddenSection" class="mt-10 mx-auto max-w-3xl bg-white p-8 rounded-xl shadow-xl box">
+        <h2 class="text-3xl font-bold text-[#1B263B] dark:text-[#FF6F61] mb-4">More About Me</h2>
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-6">
+            I enjoy exploring music, solving puzzles, and competing in CP (Competitive Programming).
+        </p>
+        <div class="space-y-4">
+            <a href="music.html" class="text-2xl text-[#1B263B] dark:text-[#FF6F61] hidden-link">🎵 Music</a><br>
+            <a href="puzzles.html" class="text-2xl text-[#1B263B] dark:text-[#FF6F61] hidden-link">🧩 Puzzles</a><br>
+            <a href="cp.html" class="text-2xl text-[#1B263B] dark:text-[#FF6F61] hidden-link">👨‍💻 Competitive Programming (CP)</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-10 text-center text-white bg-[#1B263B] p-4 rounded-b-xl">
+        <p class="text-xl">&copy; 2025 Shriram Sahoo. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark Mode Toggle
+        document.getElementById('darkModeToggle').addEventListener('change', function () {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Show/Hide "Other" Section
+        document.getElementById('otherLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            const hiddenSection = document.getElementById('hiddenSection');
+            if (hiddenSection.style.display === 'none' || hiddenSection.style.display === '') {
+                hiddenSection.style.display = 'block';
+            } else {
+                hiddenSection.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
